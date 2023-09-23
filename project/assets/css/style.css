@@ -1,0 +1,112 @@
+.stop-fade-in *{
+  animation: none !important;  
+}
+
+/* Organized UI display */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: url(..//images/corkBoard.jpg);
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 20% 75%;
+}
+
+/* Header */
+header {
+  grid-column: 12 span;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  height:auto;
+  font-family: "schoolFont";
+  font-size: 50px;
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "schoolFont";
+  src: url(../fonts/Schoolbell.ttf);
+}
+
+/* Main: notepad (form): */
+main {
+  grid-column: 12 span;
+  margin: 10px;
+}
+
+form {
+  margin: auto;
+  padding: 15px;
+  width: 500px;
+  height: fit-content;
+  text-align: center;
+  background-image: url(..//images/formbg.jpg);
+}
+
+form input {
+  margin: 4px;
+  text-align: center;
+}
+
+.note {
+  margin: 15px;
+  padding: 10px;
+  padding-top: 20px;
+  width: 180px;
+  height: 250px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  background-image: url(..//images/notebg.png);
+  background-repeat: no-repeat;
+}
+
+
+.note:nth-last-child(1){
+  animation: fadeIn 2s;
+}
+
+
+/* Main: task board (new notes from js): */
+.contentNote {
+  width: 160px;
+  height: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.dateNote,
+.timeNote {
+  justify-content: end;
+}
+
+.note > button {
+  margin-left: auto;
+  opacity: 0;
+}
+
+.note > button:hover {
+  opacity: 1;
+}
+
+/* Fade-in animation after adding new task:  */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
